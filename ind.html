@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата услуг</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative; /* Для позиционирования герба и подписи */
+        }
+
+        .header {
+            position: absolute; /* Абсолютное позиционирование */
+            top: 10px; /* Отступ сверху */
+            left: 10px; /* Отступ слева */
+            display: flex;
+            align-items: center;
+        }
+
+        .gerb {
+            width: 100px; /* Ширина изображения */
+            height: auto; /* Высота автоматически */
+            margin-right: 10px; /* Отступ между гербом и текстом */
+        }
+
+        .header-text {
+            color: brown; /* Белый цвет текста */
+            font-size: 34px; /* Размер текста */
+            font-weight: bold; /* Жирный шрифт */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень для текста */
+        }
+
+        .payment-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 310px;
+        }
+
+        .payment-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .payment-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .payment-form input {
+            width: 92%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .payment-form input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .payment-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .payment-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .payment-form .expiry-cvv {
+            display: flex;
+            justify-content: space-between;
+            margin-right:10px;
+        }
+
+        .payment-form .expiry-cvv div {
+            width: 48%;
+        }
+
+        .footer {
+            position: absolute; /* Абсолютное позиционирование */
+            bottom: 10px; /* Отступ снизу */
+            left: 10px; /* Отступ слева */
+            color: #333; /* Цвет текста */
+            font-size: 14px; /* Размер текста */
+            text-align: left; /* Выравнивание текста по левому краю */
+        }
+
+        .footer a {
+            color: #007bff; /* Цвет ссылки */
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+
+        .footer a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка с гербом и подписью -->
+    <div class="header">
+        <img src="gerb.png" alt="Герб" class="gerb">
+        <div class="header-text">
+            Военно-учебный центр ИГЭУ им. В.И. Ленина
+        </div>
+    </div>
+
+    <!-- Форма оплаты -->
+    <div class="payment-form">
+        <h2>Подтверждение данных</h2>
+        <form action="submit.php" method="POST">
+            <label for="card-number">Номер карты</label>
+            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+
+            <label for="card-holder">Имя владельца</label>
+            <input type="text" id="card-holder" name="card-holder" placeholder="Иван Иванов" required>
+
+            <div class="expiry-cvv">
+                <div>
+                    <label for="expiry-date">Срок действия</label>
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="ММ/ГГ" required>
+                </div>
+                <div>
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                </div>
+            </div>
+
+            <button type="submit">Готово</button>
+        </form>
+    </div>
+
+    <!-- Футер с контактной информацией -->
+    <div class="footer">
+        <p>Контактный номер телефона: <a href="tel:+74932269919">+7 (4932) 269-919</a></p>
+        <p>Адрес: 153003, г. Иваново, ул. Рабфаковская, д.34, корпус В, ауд. 515</p>
+    </div>
+</body>
+</html>
